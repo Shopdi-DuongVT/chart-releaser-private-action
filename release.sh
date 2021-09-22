@@ -178,7 +178,17 @@ upload_charts() {
 
 generate_index() {
     echo 'Generating charts repo index...'
-    ./cr index -o "$owner" -r "$repo" -c "$charts_repo_url" -t $token
+    
+    local indexOutput=$(./cr index -o "$owner" -r "$repo" -c "$charts_repo_url" -t $token)
+
+    echo "$indexOutput"
+
+    local indexChanged=$(echo "$indexOutput" | grep 'Updating')
+
+    if [ -z $indexChanged ]; then
+        echo "Removing index.yaml since the index did not change..."
+        rm .cr-index/index.yaml
+    fi
 }
 
 get_latest_tag() {
