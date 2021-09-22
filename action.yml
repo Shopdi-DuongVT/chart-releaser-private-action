@@ -1,6 +1,9 @@
 name: 'Chart Releaser Private'
 description: 'Releases Charts from a private repo into a public one'
 author: 'Miguel Araujo <miguelant.araujo@gmail.com>'
+branding:
+  color: blue
+  icon: anchor
 inputs:
   reposOwner:
     description: 'Name of the user/organization that owns the repos'
