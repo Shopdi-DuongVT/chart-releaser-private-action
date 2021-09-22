@@ -3,10 +3,10 @@ description: 'Releases Charts from a private repo into a public one'
 author: 'Miguel Araujo <miguelant.araujo@gmail.com>'
 inputs:
   reposOwner:
-    description: 'Username of the owner of the repos'
+    description: 'Name of the user/organization that owns the repos'
     required: true
   publicRepo:
-    description: 'The public repo'
+    description: 'Name of the public repository'
     required: true
   token:
     description: 'The Github Personal Access Token (PAT) used to clone the private repo and push to the public one'
