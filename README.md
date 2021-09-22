@@ -50,7 +50,6 @@ jobs:
         uses: Maikuh/chart-releaser-private-action@main
         with:
           reposOwner: the-owner
-          privateRepo: helm-charts-private
           publicRepo: helm-charts-public
           token: ${{ secrets.GH_TOKEN }}
         #   chartsDir: charts # default is 'charts'
