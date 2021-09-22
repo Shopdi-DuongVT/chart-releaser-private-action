@@ -1,0 +1,37 @@
+name: 'Chart Releaser Private'
+description: 'Releases Charts from a private repo into a public one'
+author: 'Miguel Araujo <miguelant.araujo@gmail.com>'
+inputs:
+  reposOwner:
+    description: 'Username of the owner of the repos'
+    required: true
+  privateRepo:
+    description: 'The private repo name'
+    required: true
+  publicRepo:
+    description: 'The public repo'
+    required: true
+  token:
+    description: 'The Github Personal Access Token (PAT) used to clone the private repo and push to the public one'
+    required: true
+  chartsDir:
+    description: 'Directory where Helm Charts are located'
+    default: charts
+    required: false
+runs:
+  using: 'composite'
+  steps:
+    - run: ${{ github.action_path }}/release.sh -r ${{ inputs.publicRepo }} -o ${{ inputs.reposOwner }} -d ${{ inputs.chartsDir }}
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+
+    - uses: actions/checkout@v2
+      with:
+        repository: ${{ inputs.reposOwner }}/${{ inputs.publicRepo }}
+        token: ${{ inputs.token }}
+        ref: gh-pages
+        path: publicRepo
+  
+    - run: ${{ github.action_path }}/push_index.sh
+      shell: bash
