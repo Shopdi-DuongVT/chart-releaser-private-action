@@ -9,11 +9,11 @@ Private repositories releases need authentication to be accessed, which makes it
 
 This creates an issue for those with a private repository, that's why the idea/strategy that this action takes is:
 1. Use the action on a private repository, which contains the charts.
-2. Upload chart packages and deploy the index.yaml to a separate, public repository, which does not contain the charts (otherwise it defeats the point of this action).
+2. Upload chart packages and deploy the index.yaml to a separate, public repository, which does not contain the charts' source code (otherwise it defeats the point of this action).
 
 ## Pre-requisites
-1. A private GitHub repository (public untested) that contains helm charts under a directory (e.g. `/charts`)
-2. A public GitHub repository where the Helm Chart packages and `index.yaml` will be uploaded to
+1. A private GitHub repository (public untested) that contains helm charts source code under a directory (e.g. `/charts`)
+2. A public GitHub repository where the Helm Chart packages and `index.yaml` will be uploaded/deployed to
 
 ## Usage
 
