@@ -5,9 +5,6 @@ inputs:
   reposOwner:
     description: 'Username of the owner of the repos'
     required: true
-  privateRepo:
-    description: 'The private repo name'
-    required: true
   publicRepo:
     description: 'The public repo'
     required: true
