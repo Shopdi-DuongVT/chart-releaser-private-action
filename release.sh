@@ -171,7 +171,7 @@ download_chart_releaser() {
 
         local output_file_name=cr.tar.gz
 
-        curl -s -L --create-dirs -o ./$output_file_name "$DOWNLOAD_URL"
+        curl -s -L --create-dirs -o ./$output_file_name https://github.com/helm/chart-releaser/releases/download/v1.4.1/chart-releaser_1.4.1_linux_amd64.tar.gz
 
         tar -xzf $output_file_name
         rm README.md LICENSE $output_file_name
