@@ -202,7 +202,7 @@ generate_index() {
 
     if [ -z $indexChanged ]; then
         echo "Removing index.yaml since the index did not change..."
-        rm .cr-index/index.yaml
+        if [ -d ".cr-index/index.yaml" ]; then rm .cr-index/index.yaml; fi
     fi
 }
 
