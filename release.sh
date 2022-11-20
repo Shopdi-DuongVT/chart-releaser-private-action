@@ -54,9 +54,10 @@ main() {
     if [[ -n "${changed_charts[*]}" ]]; then
         download_chart_releaser
 
-        rm -rf .cr-release-packages
+        if [ -d ".cr-release-packages" ]; then rm -Rf .cr-release-packages; fi
         mkdir -p .cr-release-packages
 
+        if [ -d ".cr-index" ]; then rm -Rf .cr-index; fi
         rm -rf .cr-index
         mkdir -p .cr-index
 
